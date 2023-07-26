@@ -1,15 +1,5 @@
 const Sequelize = require("sequelize");
 const { gte } = Sequelize.Op;
-const Post = sequelize.define("Post", {
-  body: Sequelize.TEXT,
-  title: Sequelize.STRING,
-  postDate: Sequelize.DATE,
-  featureImage: Sequelize.STRING,
-  published: Sequelize.BOOLEAN,
-});
-const Category = sequelize.define("Category", {
-  category: Sequelize.STRING,
-});
 
 // set up sequelize to point to our postgres database
 var sequelize = new Sequelize(
@@ -26,6 +16,18 @@ var sequelize = new Sequelize(
     query: { raw: true },
   }
 );
+
+const Post = sequelize.define("Post", {
+  body: Sequelize.TEXT,
+  title: Sequelize.STRING,
+  postDate: Sequelize.DATE,
+  featureImage: Sequelize.STRING,
+  published: Sequelize.BOOLEAN,
+});
+
+const Category = sequelize.define("Category", {
+  category: Sequelize.STRING,
+});
 
 Post.belongsTo(Category, { foreignKey: "category" });
 
