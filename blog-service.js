@@ -44,7 +44,7 @@ function initialize() {
   });
 }
 
-function getAllPosts() {
+function getAllposts() {
   return new Promise((resolve, reject) => {
     Post.findAll()
       .then((data) => {
@@ -226,7 +226,7 @@ function deletePostById(id) {
 
 module.exports = {
   initialize,
-  getAllPosts,
+  getAllposts,
   getPublishedPosts,
   getCategories,
   addPost,
