@@ -136,7 +136,7 @@ app.get('/posts', (req, res) => {
   }
 
   else {
-    getAllposts()
+    getAllPosts()
       .then((data) => {
         data.length > 0
           ? res.render("posts", { posts: data })
