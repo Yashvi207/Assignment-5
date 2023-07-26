@@ -306,10 +306,13 @@ app.post("/categories/add", (req, res) => {
 
   app.use((req, res) => {
     res.status(404).render("404");
-  });
+  })
 
-initialize().then(() => {
+blogData.initialize().then(() => {
     app.listen(HTTP_PORT, () => {
         console.log('server listening on: ' + HTTP_PORT);
     });
+}).catch((err) => {
+    console.log(err);
+})
 })
